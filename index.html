@@ -7,19 +7,6 @@
   <title>Szülinapodracuccli</title>
   <!-- Konfetti könyvtár betöltése -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js">
-
-    function ertesitesKuldése(esemenyNeve) {
-  const webhookUrl = "https://discord.com/api/webhooks/1551335752275726477/_dvWjEuisONxgk19E60am9cMrQ6ZSnmcqmz0HhYIsELheWOoW6ZW4J1jlyDjVfxCQbnF";
-
-  fetch(webhookUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      content: `🎉 **Értesítés az oldalról!** Valaki ezt csinálta: **${esemenyNeve}** (Időpont: ${new Date().toLocaleTimeString('hu-HU')})`
-    })
-  }).catch(() => {});
-}
-ertesitesKuldése("Megnyitotta a szülinapi oldalt!");
     
   </script>
   <style>
@@ -204,6 +191,24 @@ ertesitesKuldése("Megnyitotta a szülinapi oldalt!");
   </div>
 
   <script>
+// 1. ÉRTESÍTÉST KÜLDŐ FÜGGVÉNY (Ezt csak egyszer kell bemásolni!)
+function ertesitesKuldese(esemenyNeve) {
+  const webhookUrl = "https://discord.com/api/webhooks/1551335752275726477/_dvWjEuisONxgk19E60am9cMrQ6ZSnmcqmz0HhYIsELheWOoW6ZW4J1jlyDjVfxCQbnF";
+
+  fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      content: `🎉 **Értesítés az oldalról!** Esemény: **${esemenyNeve}** (Időpont: ${new Date().toLocaleTimeString('hu-HU')})`
+    })
+  }).catch(() => {});
+}
+
+// Ez a sor lefut magától az oldal betöltésekor:
+ertesitesKuldese("Megnyitotta a szülinapi oldalt! 🌐");
+
+
+    
     function mutat(valasztottId) {
   // 1. Megállítjuk az összes korábban futó zenét, és visszatekerjük az elejére
   const zenek = ['zene-uzenet', 'zene-emlek', 'zene-kupon'];
@@ -237,6 +242,16 @@ ertesitesKuldése("Megnyitotta a szülinapi oldalt!");
       origin: { y: 0.6 }
     });
   }
+
+if (valasztottId === 'uzenet') {
+    ertesitesKuldese("Elolvasta az üzenetet! 💌");
+  } else if (valasztottId === 'emlek') {
+    ertesitesKuldese("Megnézte a közös emléket/képet! 📸");
+  } else if (valasztottId === 'kupon') {
+    ertesitesKuldese("Rákattintott a szülinapi kuponra! 🎟️");
+    confetti({ particleCount: 110, spread: 70 });
+  }
+      
 }
 
     // 2. Fellebegő lila és szülinapi emojik generálása
