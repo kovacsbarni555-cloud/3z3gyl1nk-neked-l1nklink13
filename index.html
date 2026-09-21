@@ -163,7 +163,7 @@
     <div class="button-group">
       <button class="btn btn-1" onclick="mutat('uzenet')">Szavak</button>
       <button class="btn btn-2" onclick="mutat('emlek')">🍎</button>
-      <button class="btn btn-3" onclick="mutat('kupon')">Az van, hogy</button>
+      <button class="btn btn-3" onclick="mutat('kupon')">Emlékeztető</button>
     </div>
 
     <!-- 1. Válasz: Üzenet -->
@@ -185,8 +185,8 @@
 
     <!-- 3. Válasz: Ajándék / Kupon -->
     <div id="kupon" class="valasz-doboz" style="background: #edfbf4; border: 1px dashed #10b981;">
-      <h3 style="color: #059669;">Ez a cuccli itt némileg életben van.</h3>
-      <p>Nem konstans, amit most itt találsz, idővel változni fog.</p>
+      <h3 style="color: #059669;">Szeretve vagy. Nagyon.</h3>
+      <p>Félelmem, hogy néha azt hiszed, csak szerelmeteskedésből mondok ilyeneket. Tudd, hogy nem. Azon több irányból túlvagyunk. Szimplán akarom, hogy tudd. Mindig.</p>
     </div>
   </div>
 
@@ -248,14 +248,14 @@ if (valasztottId === 'uzenet') {
   } else if (valasztottId === 'emlek') {
     ertesitesKuldese("Kép");
   } else if (valasztottId === 'kupon') {
-    ertesitesKuldese("Magyarázó");
-    confetti({ particleCount: 110, spread: 70 });
+    ertesitesKuldese("Emlékeztető");
+    //confetti({ particleCount: 110, spread: 70 });
   }
       
 }
 
     // 2. Fellebegő lila és szülinapi emojik generálása
-    const symbols = ['❤️','🌸','🌸','🌸','🌸','🌸','🌸'];
+    const symbols = ['❤️','❤️','🌸','🌸','🌸','🌸','🌸'];
     const bgContainer = document.getElementById('floating-bg');
 
     for (let i = 0; i < 18; i++) {
